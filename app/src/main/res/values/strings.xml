@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">HelloWorld</string>
+    <string name="title">Hello World</string>
+    <string name="insert_text">Insert Text</string>
+    <string name="btn_show_text">Show Text</string>
+    <string name="error_message">Empty input</string>
+</resources>
