@@ -9,23 +9,22 @@ import com.example.helloworld.mvp.view.base.ActivityView
 
 class MainView(activity: Activity) : ActivityView(activity), MainContract.View {
     private var binding: ActivityMainBinding = ActivityMainBinding.inflate(activity.layoutInflater)
-
     init {
         activity.setContentView(binding.root)
     }
 
+    override fun getInputText(): String {
+        return binding.insertText.text.toString()
+    }
     override fun onShowTextBtnPressed(onClick: () -> Unit) {
         binding.btnShowText.setOnClickListener { onClick() }
     }
 
-    private var text = binding.insertText.text
-    override fun setToast() {
-        Toast.makeText(context, verifyText(), Toast.LENGTH_SHORT).show()
+    override fun showToast(text: String) {
+        Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
     }
 
-    private fun verifyText(): String {
-        return text.toString().ifEmpty {
-            context?.getString(R.string.error_message).toString()
-        }
+    override fun showToastEmptyInputError() {
+        Toast.makeText(context, R.string.error_message, Toast.LENGTH_SHORT).show()
     }
 }

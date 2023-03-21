@@ -20,8 +20,14 @@ class MainPresenterTest {
     }
 
     @Test
-    fun `mocked presenter test`() {
-        presenter.onShowTextBtnPressed()
-        verify { view.setToast() }
+    fun `on show btn pressed, a message should be show`() {
+        presenter.onShowTextBtnPressed("Yuli")
+        verify { view.showToast("Yuli") }
+    }
+
+    @Test
+    fun `on show text btn pressed, an error message should be show`() {
+        presenter.onShowTextBtnPressed("")
+        verify { view.showToastEmptyInputError() }
     }
 }

@@ -26,6 +26,7 @@
         app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintBottom_toBottomOf="parent"
         android:hint="@string/insert_text"
+        android:singleLine="true"
         />
 
     <Button
